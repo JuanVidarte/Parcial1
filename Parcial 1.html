@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Portal de Noticias</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <nav class="top-navbar">
+        <ul class="menu">
+            <li><a href="#" onclick="mostrarContenido('noticias')">Noticias</a></li>
+            <li><a href="#" onclick="mostrarContenido('admin')">Admin</a></li>
+            <li><a href="#" onclick="mostrarContenido('signup')">Sign Up</a></li>
+            <li class="dropdown">
+                <a href="#" id="about-dropdown">About &#9660;</a>
+                <ul class="dropdown-content">
+                    <li><a href="#" onclick="mostrarMision()">Misión</a></li>
+                    <li><a href="#" onclick="mostrarVision()">Visión</a></li>
+                    <li><a href="#" onclick="mostrarEquipo()">Equipo de Trabajo</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- Parte principal, noticias -->
+    <div id="noticias" class="seccion">
+    <header>
+        <h1>Noticias Importantes</h1>
+    </header>
+    <main>
+        <section class="noticias">
+            <article class="noticia">
+                <img src="https://www.elespectador.com/resizer/dGXlMNQjkyyfSCh_SM9L5n6GFNo=/287x191/filters:quality(80):format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/KESZXDXSLZDT7LOKSFTKBCOSFY.jpeg" alt="Noticia 1">
+                <h2>Piden a la Fiscalía evacuar los casos más antiguos de extinción de dominio</h2>
+                <p>El llamado lo hace la Corte Constitucional, que advierte que la etapa inicial de estos procesos no debe prolongarse durante...</p>
+                <a href="https://www.elespectador.com/judicial/piden-a-la-fiscalia-evacuar-los-casos-mas-antiguos-de-extincion-de-dominio/" class="btn">Leer más</a>
+            </article>
+            <article class="noticia">
+                <img src="https://www.elespectador.com/resizer/5cqlu3QXtNZSkK8P2UfCjbm6W9A=/287x191/filters:quality(80):format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/ATVYEEOQKJHXTOLSF36YYJ3P3E.jpg" alt="Noticia 2">
+                <h2>Hermano de Luis Díaz sufrió accidente de tránsito en La Guajira</h2>
+                <p>Se trata de Roller Díaz, hermano del extremo de la selección de Colombia y estrella del Liverpool.</p>
+                <a href="https://www.elespectador.com/deportes/seleccion-colombia/hermano-de-luis-diaz-sufrio-accidente-de-transito-en-la-guajira/" class="btn">Leer más</a>
+            </article>
+            <article class="noticia">
+                <img src="https://www.elespectador.com/resizer/uIIKpUSyrkV25CUqBGljl6gcJzk=/287x191/filters:quality(80):format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/TGVLUBIWTJGJ7BRCSVS6CMEHNQ.jpg" alt="Noticia 3">
+                <h2>Recuperado un Van Gogh robado hace más de tres años de un museo neerlandés</h2>
+                <p>El detective de arte Arthur Brand, conocido como el “Indiana Jones del arte”, ha recuperado un cuadro del artista Vincent van...</p>
+                <a href="https://www.elespectador.com/el-magazin-cultural/recuperado-un-van-gogh-robado-hace-mas-de-tres-anos-de-un-museo-neerlandes/" class="btn">Leer más</a>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <table>
+            <tr>
+                <td>
+                    <h2>Noticias Nacionales</h2>
+                    <ul>
+                        <li><a href="https://www.elespectador.com/">El Espectador</a></li>
+                        <li><a href="https://www.eltiempo.com/">El Tiempo</a></li>
+                        <li><a href="https://diariodelhuila.com/">Diario del Huila</a></li>
+                    </ul>
+                </td>
+                <td>
+                    <h2>Noticias Internacionales</h2>
+                    <ul>
+                        <li><a href="https://www.bbc.com/mundo">BBC News</a></li>
+                        <li><a href="https://www.nytimes.com/es/">The New York Times</a></li>
+                        <li><a href="https://es.euronews.com/noticias/internacional">Euronews</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </footer>
+    </div>
+    <!--Menu About-->
+    <div class="slider">
+        <!-- <div class="social-icons">
+                <a href="https://www.facebook.com/?locale=es_LA"><img src="https://play-lh.googleusercontent.com/5pZMqQYClc5McEjaISPkvhF8pDmlbLqraTMwk1eeqTlnUSjVxPCq-MItIrJPJGe7xW4" alt="Facebook"></a>
+                <a href="https://twitter.com/?lang=es"><img src="data:image/png;base64,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" alt="Twitter"></a>
+                <a href="https://co.linkedin.com/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEX///8AZsgAWMTu9PsAZ8kAYccLaspbjdRoltcAXcYAY8cAXsYAW8UAVsQAYMYAWcW3y+ugu+StxOjS3/KSseHM2vDi6/fB0+1gkNVTidNznNmGqd41ec7F1e4sdc0icMuYteJAfs/s8voAR8AATcF4oNtMhdKHqt7b5vUTFPKpAAADbElEQVR4nO3b6XKiQBRAYSFipKHFbdzNOpq8/xOOJKmJ6G1MAnJD1/n+xlB9ir2BTgcAAAAAAAAAAAAAAAAAAAAAAAD1mkxv73p3y5c/2gO5knEvTIwJjEmyYKQ9mCuY3acm+C/uTrQHVLe5Peo7MHasPaR6bW1wyq/Ep/PAQ+Kr9rBqtDFCoelpD6s+w0wIDILUn+1UXIU+rcSZtBfmQl9OGePYUZg8aA+tJruBozDqaw+tJgt5NzzsiI/aQ6vJ0lm40R5aTfrer8O1cz9caQ+tJkPnsdSXm6gb1/nQzrSHVhfHocabA02nM5FXYjjXHlh9FtKxxpsj6RsjbKfxjfao6jTLzhKtL5fdH2ZBcUONEp/u8N/1j+aijF16tYl+eF3YNImiKInt0tc54c58uuqvpkMf1x8AAMD3zLbD8Wg0Gs8nv+ja6EZ2+TenC9quN1mWJnGSJHGc2W5//NRYRKnnUPJcCMjs+S/+Fp6/TVZpOijeZ0axffwVz+gc8zSFwq7wi3j4+ffhXRhJSzHx4BdMSlYv3N6fzxJ8/qyrPqdVtfBmad19+Xq0C42sIxULh5m4fR4bGN1pn2qFO9eceYFV3RsrFe5djz1OF7dTqstVKdwkXwsMguxFq69S4d71aE5gh64BXN2PC7e7L26i7zK167ifFprbL2+ib6Jl2wqD0rOgwGpNxP648LvUHkk2VhhkW98LtR5KNleo9dCuwUKlN1gaLAzCFheaKDmILpxBYpULmxoKTWo3q+lo9LB7DOOySJ0XHisXRnZxdBs/35fdECdN1+WqFtr+yZTa5M59ORdqvGlVsTATpmF28tvxgdKOWK0wE1/bWKeOnyfTZqIKKhW6rqZvHZM3KmfEKoXJ2rVUx62j0Zh3q7QOnUsdyUcbc3v1nnMVCuOSSXv5YNO6wpLFyh8BtKxwUDZFKH+q0rLCtOyO9lXcTFtWaEtnz0IPCss/bxNP+u0qNPvS5XpwpDHlt0LiYttVeOFmj8LmUJijUCK/nEHhNVCYo1BCYXMozFEoobA5FOYolFDYHApzFEo8mPOmkMLGUJijUEJhcyjMUSihsDkU5iiUUNicaxV68LZJywuL7zuJ36kNygvFL9gjjcK4J0kKheJPggvzNNL/dLW/XAcAAAAAAAAAAAAAAAAAAAAAAPDGP4OGOxZVnJvqAAAAAElFTkSuQmCC" alt="LinkedIn"></a>
+            </div> -->
+        <div class="slide">
+            <h2>Misión</h2>
+            <p>Descripción de la Misión.</p>
+            
+        </div>
+        <div class="slide">
+            <h2>Visión</h2>
+            <p>Descripción de la Visión.</p>
+            
+        </div>
+    </div>
+    <!-- admin -->
+    <div id="admin" class="seccion">
+      <form>
+        <h2 class="h3 mb-3 fw-normal">Por favor ingrese sus credenciales para acceder al sistema</h2>
+    
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
+          <label for="floatingInput">Dirección Email</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+          <label for="floatingPassword">Contraseña</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+      </form>
+    </div>
+    <!-- Sign Up -->
+    <div id="signup" class="seccion">
+        <h1>Ingrese los datos para registrarse</h1>
+        <form action="#" method="post" onsubmit="return validarFormulario()">
+            <label for="nombres">Nombres:</label>
+            <input type="text" id="nombres" name="nombres" required pattern="^[A-Za-záéíóúñÑÁÉÍÓÚ\s]+$">
+    
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required pattern="^[A-Za-záéíóúñÑÁÉÍÓÚ\s]+$">
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
+    
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required pattern="^[0-9]+$">
+    
+            <label for="estrato">Estrato:</label>
+            <select id="estrato" name="estrato" required>
+                <option value="0">Seleccione</option>
+                <option value="1">Estrato 1</option>
+                <option value="2">Estrato 2</option>
+                <option value="3">Estrato 3</option>
+                <option value="4">Estrato 4</option>
+                <option value="5">Estrato 5</option>
+                <option value="6">Estrato 6</option>
+            </select>
+    
+            <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+            <input type="text" id="fecha-nacimiento" name="fecha-nacimiento" placeholder="YYYY-MM-DD" required pattern="^(19|20)\d\d-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$">
+    
+            <label for="grupo-sanguineo">Grupo Sanguíneo:</label>
+            <select id="grupo-sanguineo" name="grupo-sanguineo" required>
+                <option value="0">Seleccione</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB">AB</option>
+            </select>
+    
+            <label>Género:</label>
+            <label for="genero-masculino">Masculino</label>
+            <input type="radio" id="genero-masculino" name="genero" value="masculino">
+            <label for="genero-femenino">Femenino</label>
+            <input type="radio" id="genero-femenino" name="genero" value="femenino" required>
+    
+            <label for="actividades">Actividades Favoritas:</label>
+            <input type="checkbox" id="actividad-futbol" name="actividades" value="Futbol">
+            <label for="actividad-futbol">Fútbol</label>
+            <input type="checkbox" id="actividad-baloncesto" name="actividades" value="Baloncesto">
+            <label for="actividad-baloncesto">Baloncesto</label>
+            <input type="checkbox" id="actividad-ciclismo" name="actividades" value="Ciclismo">
+            <label for="actividad-ciclismo">Ciclismo</label>
+            <input type="checkbox" id="actividad-voleibol" name="actividades" value="Voleibol">
+            <label for="actividad-voleibol">Voleibol</label>
+            <input type="checkbox" id="actividad-otra" name="actividades" value="Otra">
+            <label for="actividad-otra">Otra:</label>
+            <input type="text" id="otra-actividad" name="otra-actividad">
+    
+            <button type="submit">Registrarse</button>
+        </form>
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>
